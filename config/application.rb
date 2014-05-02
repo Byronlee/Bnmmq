@@ -16,14 +16,20 @@ module Bnmmq
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.i18n.default_locale = :zh_CN
+    I18n.enforce_available_locales = false
+    config.autoload_paths += Dir["#{config.root}/app/services/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/alarm/**/"]
+    config.autoload_paths += Dir["#{config.root}/lib/china_sms/**/"]
 
-    config.autoload_paths += %W(#{config.root}/services)
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => 'lbyronlee',
+      :password             => 'lijianghua',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+    }
   end
 end

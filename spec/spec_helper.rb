@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'email_spec'
 
 Spork.prefork do
 
@@ -19,6 +20,8 @@ Spork.prefork do
     config.use_transactional_fixtures = true
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
+    config.include(EmailSpec::Helpers)
+    config.include(EmailSpec::Matchers)
     config.include FactoryGirl::Syntax::Methods
     config.include RSpec::Rails::RequestExampleGroup, type: :request, example_group: {
       file_path: /spec\/api/

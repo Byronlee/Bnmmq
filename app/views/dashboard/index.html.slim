@@ -1,0 +1,41 @@
+.span4.left
+  .config.pull-left
+    = simple_form_for bconfig(@bnmmq_config), html: { class: 'form-horizontal'}   do |f|
+      = f.input :email, :as => :email, required: true
+      = f.input :tel, :as => :tel, required: true
+      = f.button :submit 
+  p.title BNMMQ报警队列状态
+  .queue_status
+    .text
+      span.span4 短信队列
+      span.span4 邮件队列
+      span.span4 警报队列
+    .graph
+      .progress.progress-success.progress-striped.message
+        .bar style="width: 40%"
+      .progress.progress-success.progress-striped.email
+        .bar style="width: 20%"
+      .progress.progress-success.progress-striped.voice
+        .bar style="width: 50%"
+    .text
+      span.span4 总计:12
+      span.span4 总计:3
+      span.span4 总计:14
+.span8
+  #statistics
+  table.table
+    tr
+      td 监听时间段: 最近1年
+    tr
+      td 总监听服务数: 6
+    tr
+      td 总共报警次数: 32次
+      td 短信报警总次数:13次
+      td 邮件报警总次数:7次
+      td 警报报警总次数:10次
+    tr
+      td 月平均报警: 30次
+      td 月平均短信报警:10次
+      td 月平均邮件报警:8次
+      td 月平均警报报警:9次
+        

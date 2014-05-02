@@ -1,0 +1,23 @@
+doctype
+html
+  head
+    title = t('system_name')
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    .navbar
+      .navbar-inner
+        .container
+          a href="#"
+            i.icon-laptop.pull-left
+            span.pull-left = t('system_name')
+          .bell.pull-right
+            i.icon-bell-alt
+          span#time
+    .bnmmq.row-fluid
+      .container
+        = yield 
+    = render  "footer/footer"
+    /a#gotop href="#" title="回到顶部"
+      span ▲

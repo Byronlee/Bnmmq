@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+zh_CN:
+  simple_form:
+    required:
+      text: 'required'
+      mark: '*'
+      html: '<abbr title="required"><font color="red">*</font></abbr>'
+    error_notification:
+      default_message: "请查看下面详细的错误提示:"
+    labels:
+      bnmmq_config:
+        new:
+          email: '邮箱'
+          tel: '电话'
+        edit:
+          email: '邮箱'
+          tel: '电话'
+    placeholders:
+      bnmmq_config:
+        new:
+          email: '请输入报警通知电子邮箱'
+          tel: '请输入报警短信电话号码'
+        edit:
+          email: '请输入电子邮箱'
+          tel: '请输入电话号码'
+  helpers:
+    submit:
+      bnmmq_config:
+        create: "创建配置"
+        update: "更新配置"
