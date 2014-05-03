@@ -16,3 +16,16 @@
 //= require turbolinks
 //= require highcharts
 //= require_tree .
+
+$(document).ready(function(){
+    function setWrapperMinHeight() {
+        $win_height = window.innerHeight;
+	$doc_height = $(document).height();
+	$relative =(($win_height > $doc_height ? $win_height : $doc_height ));
+	$(".row-fluid").css("min-height",($relative-$('.navbar').height() - $('.footer').height()));
+    }
+    setWrapperMinHeight();
+    window.onresize = function() {
+	setWrapperMinHeight();
+    }
+});
