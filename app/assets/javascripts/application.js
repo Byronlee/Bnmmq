@@ -28,4 +28,32 @@ $(document).ready(function(){
     window.onresize = function() {
 	setWrapperMinHeight();
     }
+
+    // 闹钟震动
+    function state1(){
+	$(".bell").removeClass("r2"); 
+	$(".bell").addClass("r1");
+	setTimeout(state2,90);
+    }
+    function state2(){	   
+	$(".bell").removeClass("r1");
+	$(".bell").addClass("r2"); 
+	setTimeout(state1,90);
+    }
+    state1();
+//    $("body").append('')
+/*
+    var ws = new SockJS('http://127.0.0.1:15674/stomp');
+    var client = Stomp.over(ws);
+    var on_connect = function() {
+	client.subscribe("/MessageAlarm", function(m) {
+	    alert(m)
+	});
+    };
+    var on_error =  function() {
+	alert(2)
+    };
+    client.connect('guest', 'guest', on_connect, on_error, '/');
+*/
+
 });

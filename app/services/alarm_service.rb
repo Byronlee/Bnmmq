@@ -3,7 +3,7 @@ class AlarmService
   include Singleton
 
   def initialize
-    @alarms =["MessageAlarm","EmailAlarm"]
+    @alarms =["MessageAlarm","EmailAlarm","VoiceAlarm"]
   end
   
   def default_alarm
